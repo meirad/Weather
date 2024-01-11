@@ -1,0 +1,43 @@
+@media screen and (max-width: 800px) {
+  body {
+    flex-direction: column;
+height: 100%;
+  }
+ #temp{
+    font-size: 6rem;
+  
+ }
+ #condition{
+    font-size: 2rem;
+ }
+ #wind{
+    font-size: 1.5rem;
+  }
+
+  .top-container {
+    flex-direction: column;
+    align-items: flex-start
+  }
+#location{
+    flex-direction: column;
+    align-items: flex-start;
+}
+.forcast-panel {
+  max-width: 100%;
+}
+
+
+}
+@media screen and (max-width: 500px) {
+  #temp{
+    font-size: 3rem;
+}
+
+#condition{
+    font-size: 1.5rem;
+}
+
+#wind{
+    font-size: 1rem;
+}
+}

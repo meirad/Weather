@@ -1,0 +1,61 @@
+
+#forcast {
+    display: flex;
+    flex-direction: column;
+    height: 98vh;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+
+#temp {
+    font-size: 10rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+#wind{
+    margin-left: 20px; 
+    display: flex;
+    font-size: 1em;
+}
+
+
+#forcastTem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.day {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    padding: 10px 15px;
+    height: 150px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.day p {
+    text-align: center;
+}
+
+.image{
+
+}
+
+.description{
+    
+}
+
+.min-max {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    justify-content: center;
+}
+.min{}
+.max{}

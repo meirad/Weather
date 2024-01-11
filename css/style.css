@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+height: 100vh;
+}
+    
+
+main, .forcast-panel {
+    flex: 1;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+main h1{
+    font-size: 3rem;
+    font-family: italic;
+    padding: 15px;
+
+}
+.rightSid{
+  
+}
+
+.forcast-panel{
+    max-width: 360px;
+    padding: 10px;
+    background-color: #ffffff89;
+}   
+
+
+#weather {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px; /* Adjust this value as needed */
+}
+
+hr {
+  margin-top: 10px; /* Adjust this value as needed */
+}
+  #condition{
+    font-size: 2rem;
+  }
+  #wind{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #palce {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+  #location {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    gap: 10px;
+}
+#DATE{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#changeLocation{
+  padding: 5px;
+  width: 100px;
+  background-color: transparent;
+  border: 1px solid #0000003b;
+}
+
+#btn{
+  padding: 5px;
+  width: 100px;
+  background-color: transparent;
+  border: 1px solid #0000003b;
+}
+
+#btn:hover{
+  background-color: #0000003b;
+  color: white;
+  cursor: pointer;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 62px;
+  height: 35px;
+ }
+ 
+ /* Hide default HTML checkbox */
+ .switch input {
+  opacity: 1;
+  width: 0;
+  height: 0;
+ }
+ 
+ /* The slider */
+ .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  background: #ffffff52;
+  transition: .4s;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+ }
+ 
+ .slider:before {
+  position: absolute;
+  content: "";
+  height: 1.9em;
+  width: 1.9em;
+  border-radius: 16px;
+  left: 1.2px;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.744);
+  box-shadow: 0 2px 5px #999999;
+  transition: .4s;
+ }
+ 
+ input:checked + .slider {
+  background-color: #ffffff;
+  border: 1px solid transparent;
+ }
+ 
+ input:checked + .slider:before {
+  transform: translateX(1.5em);
+ }
+ .top-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 10px;
+}
