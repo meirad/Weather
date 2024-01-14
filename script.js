@@ -94,7 +94,6 @@ async function printTodaysWeather(location) {
 
 
     document.getElementById('location').innerHTML = template2;
-
     document.getElementById('location').innerHTML = template2;
 
     
