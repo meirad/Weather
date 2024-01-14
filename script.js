@@ -33,6 +33,25 @@ function startClock(timezone) {
         dateElement.innerHTML = time; // Set the new time
     }, 1000)
 }
+
+
+if ("geolocation" in navigator) {
+    console.log(location);
+    navigator.geolocation.getCurrentPosition(
+        async function (position) {
+            const location = `${position.coords.latitude},${position.coords.longitude}`;
+            await printTodaysWeather(location);
+            await printWeeksWeather(location);
+        },
+        function (error) {
+            console.error("Error getting location: " + error.message);
+        }
+    );
+} else {
+    console.error("Geolocation is not supported in this browser");
+}
+
+
 async function printTodaysWeather(location) {
     const { data, timezone } = await getApi(location);
     const weather = data.current;
@@ -58,7 +77,6 @@ async function printTodaysWeather(location) {
     `;
     document.getElementById('weather').innerHTML = template;
 
-  
     const localDateTime = new Date(locationData.localtime);
     const localTime = localDateTime.toLocaleTimeString();
 
@@ -80,10 +98,8 @@ async function printTodaysWeather(location) {
 
     document.getElementById('location').innerHTML = template2;
 
-    // Place the geolocation code here
-   
     
-      
+
     document.getElementById('btn').addEventListener('click', async function() {
         try {
             const location = document.getElementById('changeLocation').value;
@@ -126,6 +142,7 @@ async function printTodaysWeather(location) {
 }
 
 
+
 let weeksWeather; 
 
 async function printWeeksWeather(location){
@@ -159,27 +176,6 @@ async function printWeeksWeather(location){
     }
     document.getElementById('forcast').innerHTML = forecastHTML;
 }
-
-
-if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(
-        async function (position) {
-            const location = `${position.coords.latitude},${position.coords.longitude}`;
-            await printTodaysWeather(location);
-            await printWeeksWeather(location);
-        },
-        function (error) {
-            console.error("Error getting location: " + error.message);
-        }
-    );
-} else {
-    console.error("Geolocation is not supported in this browser");
-}
-
-
-
-    printTodaysWeather(location);
-    printWeeksWeather(location);
 
 
     // This function toggles the temperature between Celsius and Fahrenheit
