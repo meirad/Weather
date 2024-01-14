@@ -147,7 +147,7 @@ let weeksWeather;
 
 async function printWeeksWeather(location){
     const { data, timezone } = await getApi(location);
-    let weeksWeather = data.forecast.forecastday; 
+    weeksWeather = data.forecast.forecastday; 
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     let forecastHTML = '';
@@ -177,27 +177,28 @@ async function printWeeksWeather(location){
     document.getElementById('forcast').innerHTML = forecastHTML;
 }
 
-
-    // This function toggles the temperature between Celsius and Fahrenheit
-    
-    function toggleTemp() {
-        const checkbox = document.getElementById('tempSwitch');
-        if (checkbox.checked) {
-            document.getElementById('temp').innerHTML = `${fahrenheit}°F`;
-            for (let i = 0; i < 7; i++) {
-                const day = document.getElementById(`day${i}`);
+function toggleTemp() {
+    const checkbox = document.getElementById('tempSwitch');
+    if (checkbox.checked) {
+        document.getElementById('temp').innerHTML = `${fahrenheit}°F`;
+        for (let i = 0; i < 7; i++) {
+            const day = document.getElementById(`day${i}`);
+            if (weeksWeather[i]) {
                 day.querySelector('.max').innerHTML = `${weeksWeather[i].day.maxtemp_f}°F`;
                 day.querySelector('.min').innerHTML = `${weeksWeather[i].day.mintemp_f}°F`;
             }
-        } else {
-            document.getElementById('temp').innerHTML = `${celsius}°C`;
-            for (let i = 0; i < 7; i++) {
-                const day = document.getElementById(`day${i}`);
+        }
+    } else {
+        document.getElementById('temp').innerHTML = `${celsius}°C`;
+        for (let i = 0; i < 7; i++) {
+            const day = document.getElementById(`day${i}`);
+            if (weeksWeather[i]) {
                 day.querySelector('.max').innerHTML = `${weeksWeather[i].day.maxtemp_c}°C`;
                 day.querySelector('.min').innerHTML = `${weeksWeather[i].day.mintemp_c}°C`;
             }
         }
     }
-    document.addEventListener('DOMContentLoaded', (event) => {
-        document.getElementById('tempSwitch').addEventListener('change', toggleTemp);
-    });
+}
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById('tempSwitch').addEventListener('change', toggleTemp);
+});
