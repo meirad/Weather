@@ -1,6 +1,6 @@
 async function getApi(location){
     const baseUrl = 'http://api.weatherapi.com/v1/forecast.json';
-    const apiKey = '3b9f770da2074b5f965125001232412';
+    const apiKey = '1463666ca879422db5690800241401';
     const days = '5';
     const apiUrl = `${baseUrl}?key=${apiKey}&q=${location}&aqi=no&days=${days}`;
     let response = await fetch(apiUrl);
