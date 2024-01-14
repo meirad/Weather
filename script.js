@@ -17,6 +17,7 @@ async function getApi(location){
 
 let intervalId;
 
+
 function startClock(timezone) {
     // Clear the previous interval
     if (intervalId) {
