@@ -7,8 +7,10 @@ async function getApi(location){
 
     let data =  await response.json(); 
     let timezone = data.location.tz_id;
+
     startClock(timezone);
     console.log(timezone);
+
     return {data, timezone};
 }
 
@@ -28,8 +30,8 @@ function startClock(timezone) {
         let time = date.toLocaleTimeString('en-US', options);
     
         let dateElement = document.getElementById('date');
-        dateElement.innerHTML = '';
-        dateElement.innerHTML = time;
+        dateElement.innerHTML = ''; // Clear the previous time
+        dateElement.innerHTML = time; // Set the new time
     }, 1000)
 }
 
@@ -120,6 +122,8 @@ async function printTodaysWeather(location) {
     else if (weather.condition.text.toLowerCase().includes('cloud')) {
         document.body.style.backgroundImage = "url('cloudy.jpg')";
         document.body.style.color = "white";
+        document.input.style.color = "white";
+
 
     }
     else if (weather.condition.text.toLowerCase().includes('sun')) {
@@ -199,4 +203,3 @@ function toggleTemp() {
 document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('tempSwitch').addEventListener('change', toggleTemp);
 });
-
