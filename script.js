@@ -4,13 +4,11 @@ async function getApi(location){
     const days = '5';
     const apiUrl = `${baseUrl}?key=${apiKey}&q=${location}&aqi=no&days=${days}`;
     let response = await fetch(apiUrl);
-
     let data =  await response.json(); 
     let timezone = data.location.tz_id;
-
+    
     startClock(timezone);
     console.log(timezone);
-
     return {data, timezone};
 }
 
@@ -30,8 +28,8 @@ function startClock(timezone) {
         let time = date.toLocaleTimeString('en-US', options);
     
         let dateElement = document.getElementById('date');
-        dateElement.innerHTML = ''; // Clear the previous time
-        dateElement.innerHTML = time; // Set the new time
+        dateElement.innerHTML = '';
+        dateElement.innerHTML = time;
     }, 1000)
 }
 
@@ -203,3 +201,4 @@ function toggleTemp() {
 document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('tempSwitch').addEventListener('change', toggleTemp);
 });
+
