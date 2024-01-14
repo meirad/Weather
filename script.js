@@ -130,30 +130,33 @@ let weeksWeather;
 
 async function printWeeksWeather(location){
     const { data, timezone } = await getApi(location);
-    weeksWeather = data.forecast.forecastday; 
+    let weeksWeather = data.forecast.forecastday; 
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     let forecastHTML = '';
-    weeksWeather.forEach((day, index) => {
-        const date = new Date(day.date);
-        const dayOfWeek = days[date.getDay()];
-
-        forecastHTML += `
-            <div class="day">
-                <div class="image">
-                    <img src="https:${day.day.condition.icon}"> 
+    for(let index = 0; index < 5; index++) {
+        const day = weeksWeather[index];
+        if (day) {
+            const date = new Date(day.date);
+            const dayOfWeek = days[date.getDay()];
+    
+            forecastHTML += `
+                <div class="day">
+                    <div class="image">
+                        <img src="https:${day.day.condition.icon}"> 
+                    </div>
+                    <div class="description">
+                        <h2>${dayOfWeek}</h2>
+                        <p>${day.day.condition.text}</p>
+                        <p class="min-max" id="day${index}">                        
+                        <span class="max">${day.day.maxtemp_c}°</span> -
+                            <span class="min">${day.day.mintemp_c}°</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="description">
-                    <h2>${dayOfWeek}</h2>
-                    <p>${day.day.condition.text}</p>
-                    <p class="min-max" id="day${index}">                        
-                    <span class="max">${day.day.maxtemp_c}°</span> -
-                        <span class="min">${day.day.mintemp_c}°</span>
-                    </p>
-                </div>
-            </div>
-        `;
-    });
+            `;
+        }
+    }
     document.getElementById('forcast').innerHTML = forecastHTML;
 }
 
