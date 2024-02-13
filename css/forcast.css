@@ -2,7 +2,7 @@
 #forcast {
     display: flex;
     flex-direction: column;
-    height: 98vh;
+  /*   height: 98vh; */
     align-items: stretch;
     justify-content: space-around;
 }

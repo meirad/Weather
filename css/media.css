@@ -1,7 +1,10 @@
 @media screen and (max-width: 800px) {
   body {
     flex-direction: column;
-height: 100%;
+    height: 100vh;
+  }
+  #forcast{
+    overflow-x: auto;
   }
  #temp{
     font-size: 6rem;

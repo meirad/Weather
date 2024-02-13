@@ -17,7 +17,6 @@ let intervalId;
 
 
 function startClock(timezone) {
-    // Clear the previous interval
     if (intervalId) {
         clearInterval(intervalId);
     }
@@ -113,21 +112,21 @@ async function printTodaysWeather(location) {
     });
 
     if (weather.condition.text.toLowerCase().includes('rain')) {
-        document.body.style.backgroundImage = "url('rainy.jpg')";
+        document.body.style.backgroundImage = "url(./img/rainy.jpg')";
         document.body.style.color = "white";
     }
     else if (weather.condition.text.toLowerCase().includes('cloud')) {
-        document.body.style.backgroundImage = "url('cloudy.jpg')";
+        document.body.style.backgroundImage = "url('./img/cloudy.jpg')";
         document.body.style.color = "white";
 
     }
     else if (weather.condition.text.toLowerCase().includes('sun')) {
-        document.body.style.backgroundImage = "url('sunday.jpg')";
+        document.body.style.backgroundImage = "url('./img/sunday.jpg')";
         document.body.style.color = "black";
 
     }
     else {
-        document.body.style.backgroundImage = "url('snowy.jpg')";
+        document.body.style.backgroundImage = "url('./img/snowy.jpg')";
         document.body.style.color = "black";
 
 }
