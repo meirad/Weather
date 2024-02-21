@@ -118,7 +118,6 @@ async function printTodaysWeather(location) {
     else if (weather.condition.text.toLowerCase().includes('cloud')) {
         document.body.style.backgroundImage = "url('./img/cloudy.jpg')";
         document.body.style.color = "white";
-
     }
     else if (weather.condition.text.toLowerCase().includes('sun')) {
         document.body.style.backgroundImage = "url('./img/sunday.jpg')";
